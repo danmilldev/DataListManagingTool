@@ -25,6 +25,7 @@ void Menu()
         Console.WriteLine("1. Create New item.");
         Console.WriteLine("2. Show List.");
         Console.WriteLine("3. Delete item");
+        Console.WriteLine("6 or higher to exit");
 
         Console.Write("Choose: ");
         input = Convert.ToInt32(Console.ReadLine());
