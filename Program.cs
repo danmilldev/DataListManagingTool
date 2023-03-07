@@ -3,6 +3,9 @@
 // Delete Adjustments: making it so each line can be deleted by its first number it has
 // 
 
+using System.Collections.Generic;
+using System.Reflection.PortableExecutable;
+
 string FileName = "ItemList.txt";
 int input = 0;
 
@@ -96,11 +99,28 @@ void ShowList()
 
 void DeleteItem()
 {
-    Console.WriteLine("Wich line to delete just the first number: ");
+    bool wasFound = false;
 
-    int LineNumber = Convert.ToInt32(Console.ReadLine());
-    List<string> quotelist = File.ReadAllLines(FileName).ToList();
-    string firstItem = quotelist[0];
-    quotelist.RemoveAt(LineNumber);
-    File.WriteAllLines(FileName, quotelist.ToArray());
+    Console.WriteLine("Wich line to delete just the first number: ");
+    string LineNumber = Console.ReadLine().TrimEnd();
+    Console.WriteLine("Line number is " + LineNumber);
+
+    List<string> content = File.ReadAllLines(FileName).ToList();
+
+    foreach (var item in content.ToArray())
+    {
+        if (String.Equals(item.Substring(0, 1), LineNumber.Substring(0, 1)))
+        {
+            content.Remove(item);
+            wasFound = true;
+            continue;
+        }
+    }
+
+    File.WriteAllLines(FileName, content.ToArray());
+
+    if (!wasFound)
+        Console.WriteLine("Nothing was deleted: Line not Found.");
+    else
+        Console.WriteLine("Line found and Deleted.");
 }
