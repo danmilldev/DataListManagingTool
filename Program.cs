@@ -13,13 +13,18 @@ Menu();
 
 void Menu()
 {
+    if (!File.Exists(FileName))
+    {
+        FileStream F = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        F.Close();
+    }
+
     while (input <= 5)
     {
-        if (!File.Exists(FileName))
-        {
-            FileStream F = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            F.Close();
-        }
+
+        ShowList();
+
+        Console.WriteLine("----------");
 
         Console.WriteLine("Menu");
         Console.WriteLine("1. Create New item.");
@@ -75,17 +80,6 @@ void CreateItem()
     }
 
     Console.Clear();
-
-    Console.WriteLine("TextFileOutput:");
-
-    string line = "";
-    using (StreamReader sr = new StreamReader(FileName))
-    {
-        while ((line = sr.ReadLine()) != null)
-        {
-            Console.WriteLine(line);
-        }
-    }
 }
 
 void ShowList()
@@ -127,6 +121,7 @@ void UpdateItem()
     content[index] = newItemText;
 
     File.WriteAllLines(FileName, content.ToArray());
+    Console.Clear();
 }
 
 void DeleteItem()
@@ -155,4 +150,7 @@ void DeleteItem()
         Console.WriteLine("Nothing was deleted: Line not Found.");
     else
         Console.WriteLine("Line found and Deleted.");
+
+    Thread.Sleep(1000);
+    Console.Clear();
 }
