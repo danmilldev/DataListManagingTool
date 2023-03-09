@@ -24,7 +24,8 @@ void Menu()
         Console.WriteLine("Menu");
         Console.WriteLine("1. Create New item.");
         Console.WriteLine("2. Show List.");
-        Console.WriteLine("3. Delete item");
+        Console.WriteLine("3. Update item");
+        Console.WriteLine("4. Delete Item");
         Console.WriteLine("6 or higher to exit");
 
         Console.Write("Choose: ");
@@ -34,7 +35,8 @@ void Menu()
         {
             case 1: CreateItem(); break;
             case 2: ShowList(); break;
-            case 3: DeleteItem(); break;
+            case 3: UpdateItem(); break;
+            case 4: DeleteItem(); break;
             default:
                 break;
         }
@@ -96,6 +98,35 @@ void ShowList()
             Console.WriteLine(line);
         }
     }
+}
+
+void UpdateItem()
+{
+    Console.WriteLine("Wich line to edit just the first number: ");
+    string LineNumber = Console.ReadLine().TrimEnd();
+    Console.WriteLine("Line number is " + LineNumber);
+
+    List<string> content = File.ReadAllLines(FileName).ToList();
+
+    int index = 0;
+
+    foreach (var item in content.ToArray())
+    {
+        if (String.Equals(item.Substring(0, 1), LineNumber.Substring(0, 1)))
+        {
+            index = item.IndexOf(item);
+            break;
+        }
+    }
+
+    Console.WriteLine("found item: " + content[index]);
+    Console.Write("NewText: ");
+
+    string newItemText = Console.ReadLine();
+
+    content[index] = newItemText;
+
+    File.WriteAllLines(FileName, content.ToArray());
 }
 
 void DeleteItem()
