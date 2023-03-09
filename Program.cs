@@ -1,9 +1,4 @@
-﻿//TODO
-//
-// Delete Adjustments: making it so each line can be deleted by its first number it has
-// 
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection.PortableExecutable;
 
 string FileName = "ItemList.txt";
@@ -11,6 +6,8 @@ int input = 0;
 
 Menu();
 
+//Menu to select what to change or to create or to delete.
+//And checking first if file exists if not it will be created.
 void Menu()
 {
     if (!File.Exists(FileName))
@@ -48,6 +45,7 @@ void Menu()
     }
 }
 
+//Reading all lines to count them and to set the correct number for the next item.
 long CountLinesReader(FileInfo file)
 {
     var lineCounter = 0L;
@@ -61,6 +59,7 @@ long CountLinesReader(FileInfo file)
     }
 }
 
+//Creating an item by getting an input from the user and writing it to the file with the CountLinesReader method
 void CreateItem()
 {
     long FileLinesCount;
@@ -82,6 +81,7 @@ void CreateItem()
     Console.Clear();
 }
 
+//Just printing out the whole TXT file.
 void ShowList()
 {
     string line = "";
@@ -94,6 +94,9 @@ void ShowList()
     }
 }
 
+//Update an item in the TXT file by reading all content finding that item to update
+//and then just getting input from the user and change it in the List and write the new
+//List to the FIle.
 void UpdateItem()
 {
     Console.WriteLine("Wich line to edit just the first number: ");
@@ -102,16 +105,7 @@ void UpdateItem()
 
     List<string> content = File.ReadAllLines(FileName).ToList();
 
-    int index = 0;
-
-    foreach (var item in content.ToArray())
-    {
-        if (String.Equals(item.Substring(0, 1), LineNumber.Substring(0, 1)))
-        {
-            index = item.IndexOf(item);
-            break;
-        }
-    }
+    int index = content.FindIndex(i => i.Contains(LineNumber));
 
     Console.WriteLine("found item: " + content[index]);
     Console.Write("NewText: ");
@@ -120,10 +114,11 @@ void UpdateItem()
 
     content[index] = newItemText;
 
-    File.WriteAllLines(FileName, content.ToArray());
+    File.WriteAllLines(FileName, content);
     Console.Clear();
 }
 
+//
 void DeleteItem()
 {
     bool wasFound = false;
@@ -144,7 +139,7 @@ void DeleteItem()
         }
     }
 
-    File.WriteAllLines(FileName, content.ToArray());
+    File.WriteAllLines(FileName, content);
 
     if (!wasFound)
         Console.WriteLine("Nothing was deleted: Line not Found.");

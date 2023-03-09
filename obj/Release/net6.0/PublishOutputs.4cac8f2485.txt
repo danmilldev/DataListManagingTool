@@ -1,0 +1,5 @@
+G:\C# Console Apps\DataListManagingTool\bin\Release\net6.0\publish\DataListManagingTool.exe
+G:\C# Console Apps\DataListManagingTool\bin\Release\net6.0\publish\DataListManagingTool.dll
+G:\C# Console Apps\DataListManagingTool\bin\Release\net6.0\publish\DataListManagingTool.deps.json
+G:\C# Console Apps\DataListManagingTool\bin\Release\net6.0\publish\DataListManagingTool.runtimeconfig.json
+G:\C# Console Apps\DataListManagingTool\bin\Release\net6.0\publish\DataListManagingTool.pdb

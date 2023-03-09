@@ -1,0 +1,15 @@
+G:\C# Console Apps\DataListManagingTool\bin\Release\net6.0\DataListManagingTool.exe
+G:\C# Console Apps\DataListManagingTool\bin\Release\net6.0\DataListManagingTool.deps.json
+G:\C# Console Apps\DataListManagingTool\bin\Release\net6.0\DataListManagingTool.runtimeconfig.json
+G:\C# Console Apps\DataListManagingTool\bin\Release\net6.0\DataListManagingTool.dll
+G:\C# Console Apps\DataListManagingTool\bin\Release\net6.0\DataListManagingTool.pdb
+G:\C# Console Apps\DataListManagingTool\obj\Release\net6.0\DataListManagingTool.csproj.AssemblyReference.cache
+G:\C# Console Apps\DataListManagingTool\obj\Release\net6.0\DataListManagingTool.GeneratedMSBuildEditorConfig.editorconfig
+G:\C# Console Apps\DataListManagingTool\obj\Release\net6.0\DataListManagingTool.AssemblyInfoInputs.cache
+G:\C# Console Apps\DataListManagingTool\obj\Release\net6.0\DataListManagingTool.AssemblyInfo.cs
+G:\C# Console Apps\DataListManagingTool\obj\Release\net6.0\DataListManagingTool.csproj.CoreCompileInputs.cache
+G:\C# Console Apps\DataListManagingTool\obj\Release\net6.0\DataListManagingTool.dll
+G:\C# Console Apps\DataListManagingTool\obj\Release\net6.0\refint\DataListManagingTool.dll
+G:\C# Console Apps\DataListManagingTool\obj\Release\net6.0\DataListManagingTool.pdb
+G:\C# Console Apps\DataListManagingTool\obj\Release\net6.0\DataListManagingTool.genruntimeconfig.cache
+G:\C# Console Apps\DataListManagingTool\obj\Release\net6.0\ref\DataListManagingTool.dll
