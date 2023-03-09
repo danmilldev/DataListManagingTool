@@ -105,7 +105,7 @@ void UpdateItem()
 
     List<string> content = File.ReadAllLines(FileName).ToList();
 
-    int index = content.FindIndex(i => i.Contains(LineNumber));
+    int index = content.FindIndex(i => i.Substring(0,1).Contains(LineNumber));
 
     Console.WriteLine("found item: " + content[index]);
     Console.Write("NewText: ");
@@ -118,7 +118,7 @@ void UpdateItem()
     Console.Clear();
 }
 
-//
+//deleting an item found by the foreach loop and the given user input
 void DeleteItem()
 {
     bool wasFound = false;
